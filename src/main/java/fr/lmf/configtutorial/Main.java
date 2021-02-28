@@ -1,0 +1,32 @@
+package fr.lmf.configtutorial;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraftforge.common.ForgeConfig;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.stream.Collectors;
+
+@Mod("config-tutorial")
+public class Main {
+
+    public Main() {
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, fr.lmf.configtutorial.common.ModConfig.clientSpec);
+
+    }
+}
